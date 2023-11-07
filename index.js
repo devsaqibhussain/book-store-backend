@@ -19,16 +19,16 @@ app.get("/", (req, res) => {
   res.send("This is a backend server for book-store");
 });
 
-mongoose
-  .connect(process.env.MONGODB_URL)
-  .then(() => {
-    console.log("Connected to database");
-    app.listen(process.env.PORT || 5555, () => {
-      console.log(`App is listening on PORT: ${process.env.PORT || 5555}`);
+app.listen(process.env.PORT || 5555, () => {
+  console.log(`App is listening on PORT: ${process.env.PORT || 5555}`);
+  mongoose
+    .connect(process.env.MONGODB_URL)
+    .then(() => {
+      console.log("Connected to database");
+    })
+    .catch((err) => {
+      console.log("Error message:", err);
     });
-  })
-  .catch((err) => {
-    console.log("Error message:", err);
-  });
+});
 
-export default app
+export default app;
