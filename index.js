@@ -16,15 +16,14 @@ app.use(cors({}));
 app.use("/api/book", router);
 
 app.get("/", (req, res) => {
-  res.send("<h1>This is a backend server for book-store</h1>");
-  res.end();
+  res.send("This is a backend server for book-store");
 });
 mongoose
   .connect(db_URL)
   .then(() => {
     console.log("Connected to database");
-    app.listen(PORT, () => {
-      console.log(`App is listening on PORT: ${PORT}`);
+    app.listen(process.env.PORT || PORT, () => {
+      console.log(`App is listening on PORT: ${process.env.PORT || PORT}`);
     });
   })
   .catch((err) => {
