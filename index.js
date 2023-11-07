@@ -3,12 +3,10 @@ import mongoose from "mongoose";
 import cors from "cors";
 import * as dotevn from "dotenv";
 
-import { PORT } from "./config.js";
 import router from "./routes/bookRoutes.js";
 
 dotevn.config();
 const app = express();
-const db_URL = process.env.MONGODB_URL;
 
 app.use(express.json());
 app.use(cors({}));
