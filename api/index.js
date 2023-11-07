@@ -15,9 +15,9 @@ app.use(cors({}));
 
 app.use("/api/book", router);
 
-app.get("/api", (req, res) => {
-  res.setHeader('Content-Type', 'text/html');
-  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate');
+app.get("/", (req, res) => {
+  res.setHeader("Content-Type", "text/html");
+  res.setHeader("Cache-Control", "s-max-age=1, stale-while-revalidate");
   res.send("This is a backend server for book-store");
 });
 mongoose
@@ -32,4 +32,4 @@ mongoose
     console.log("Error message:", err);
   });
 
-export default app
+export default app;
