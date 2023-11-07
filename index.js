@@ -8,8 +8,7 @@ import router from "./routes/bookRoutes.js";
 dotevn.config();
 const app = express();
 const db_URL = process.env.MONGODB_URL;
-const PORT = process.env.PORT
-
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(
@@ -21,7 +20,10 @@ app.use(
 );
 
 app.use("api/book", router);
-
+app.get("/", (req, res) => {
+  res.send("<h1>This is a backend server for book-store</h1>");
+  res.end();
+});
 mongoose
   .connect(db_URL)
   .then(() => {
