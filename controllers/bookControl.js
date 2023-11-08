@@ -11,6 +11,8 @@ const createBook = async (req, res) => {
       title: req.body.title,
       author: req.body.author,
       publishYear: req.body.publishYear,
+      img: req.body.img,
+      url: req.body.url,
     };
     const book = await Book.create(newBook);
     return res.status(201).json({ message: "Book created", data: book });
